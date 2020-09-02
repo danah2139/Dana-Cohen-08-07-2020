@@ -10,7 +10,7 @@ export const fetchUser = () => async dispatch => {
 
 
 export const newUser = () => async dispatch => {
-    const res = await axios.get('/register');
+    const res = await axios.post('/register',values);
     dispatch({ type: FETCH_USER, payload:res.data});    
     
 };

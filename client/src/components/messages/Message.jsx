@@ -10,7 +10,7 @@ class Message extends React.Component{
                     </button>
                 </div>
                 <div className="card-content">
-                    <span className="card-title">{this.props.message.title}</span>
+                    <span className="card-title">{this.props.message.body}</span>
                     <p>
                         {this.props.body}
                     </p>

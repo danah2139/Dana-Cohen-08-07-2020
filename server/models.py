@@ -41,8 +41,8 @@ class Message(db.Model, UserMixin):
     date = db.Column(db.DateTime , nullable = False,default = datetime.utcnow)
     subject = db.Column(db.String(140),nullable=True)
     body = db.Column(db.Text,nullable=True)
-    Emails_send = db.relationship('User',foreign_keys=user_id)
-    Emails_recieve=db.relationship('User',foreign_keys=sender_id)
+    Emails_send = db.relationship('User',foreign_keys=[user_id])
+    Emails_recieve=db.relationship('User',foreign_keys=[sender_id])
 
     def __init__(self,subject,body,user_id,sender_id):
         self.user_id = user_id
