@@ -6,6 +6,8 @@ import Header from './Header';
 import Dashboard from './Dashboard';
 import MessageNew from './messages/MessageNew';
 import Login from './Login';
+import Register from './Register';
+
 
 
 class App extends Component {
@@ -19,6 +21,7 @@ class App extends Component {
                 <BrowserRouter>
                     <div className="container">
                         <Header/>
+                        <Route exact path='/register' component = {Register}/>
                         <Route exact path='/login' component = {Login}/>
                         <Route exact path='/messages' component = {Dashboard}/>
                         <Route exact path='/create' component = {MessageNew}/>

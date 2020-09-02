@@ -6,33 +6,26 @@ import Login from './Login';
 
 class Header extends Component{
     renderContent(){
-        switch(this.props.username){
-            case null:
-                return;
-            case false:
-                return [<li key = "1" Component = {Login} ><Link to = '/login'>Login</Link></li>,
-                        <li key="2" Component = {Register}><Link to = '/register'>Register</Link></li>];
+        switch(this.props.auth){
             default:
-                return (<li><Link to = '/'>Logout</Link></li>);
+                return [<li key = "1" className = "nav-item" component = {Login} ><Link className="nav-link active" to = '/login'>Login</Link></li>,
+                        <li key="2" className = "nav-item" component = {Register}><Link className="nav-link active"
+                         to = '/register'>Register</Link></li>];
+            case true:
+                return (<li><Link className="nav-link active" to = '/' className = "nav-item active">Logout</Link></li>);
 
 
         }
     }
     render(){
         return(
-            <nav>
-                <div className="nav-wrapper">
-                    <Link 
-                    to={this.props.username ? '/messages' : '/login'}
-                     className="left brand-logo">
-                        Emaily
-                    </Link>
-                    <ul className="right">
-                      {this.renderContent()}
-
-                    </ul>
-                </div>
-            </nav>
+                        <ul className="nav justify-content" style={{height: 20,fontSize:30}}>
+                            <li className="nav-item font-weight-bold" style={{backgroundColor:'rgb(227, 242, 253)'}} >
+                                <Link className ="navbar-brand text-primary text-black-50" style={{height: 25,fontSize:35,border:4,backgroundSize:8 ,margin:5}} to={this.props.auth ? '/messages' : '/login'} 
+                            >   
+                                Emaily</Link></li>
+                            {this.renderContent()}
+                      </ul>
         );
     }
 }
